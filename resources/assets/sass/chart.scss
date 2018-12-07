@@ -1,0 +1,431 @@
+$color_1: rgba(68, 157, 68, 0.8);
+$color_2: #fff;
+$color_3: #333;
+$color_4: rgba(68, 157, 68, 0.5);
+$color_5: #449d44;
+$color_6: rgba(68, 157, 68, 0.6);
+$color_7: rgba(255,255,255,0.8);
+$background_color_1: rgba(217, 83, 79, 0.8);
+$background_color_2: rgba(238, 217, 54, 0.5);
+$background_color_3: #fff;
+$background_color_4: #5cb85c;
+$background_color_5: #449d44;
+$background_color_6: rgba(0,0,0,0.3);
+$border_color_1: rgba(217, 83, 79, 0.8);
+$border_color_2: rgba(68, 157, 68, 0.9);
+$border_color_3: #4cae4c;
+$border_color_4: #347a34;
+
+.node {
+  .content {
+    min-height: 25px !important;
+  }
+}
+.orgchart {
+  .hidden {
+    display: none;
+  }
+  .verticalNodes {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 18px;
+      text-align: left;
+      &:first-child {
+        margin-top: 2px;
+      }
+      >li {
+        position: relative;
+        &::before {
+          box-sizing: border-box;
+          content: '';
+          position: absolute;
+          left: -6px;
+          border-color: $border_color_1;
+          border-style: solid;
+          border-width: 0 0 2px 2px;
+          top: -4px;
+          height: 30px;
+          width: 11px;
+        }
+        &::after {
+          box-sizing: border-box;
+          content: '';
+          position: absolute;
+          left: -6px;
+          border-color: $border_color_1;
+          border-style: solid;
+          border-width: 0 0 2px 2px;
+          top: 1px;
+          height: 100%;
+        }
+        &:first-child {
+          &::after {
+            box-sizing: border-box;
+            top: 24px;
+            width: 11px;
+            border-width: 2px 0 0 2px;
+          }
+        }
+        &:last-child {
+          &::after {
+            box-sizing: border-box;
+            border-width: 2px 0 0;
+          }
+        }
+      }
+    }
+    >td {
+      &::before {
+        content: '';
+        border: 1px solid rgba(217, 83, 79, 0.8);
+      }
+      >ul {
+        >li {
+          &:first-child {
+            &::before {
+              box-sizing: border-box;
+              top: -4px;
+              height: 30px;
+              width: calc(50% - 2px);
+              border-width: 2px 0 0 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+  >.spinner {
+    font-size: 100px;
+    margin-top: 30px;
+    color: $color_1;
+  }
+  table {
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+  >table {
+    &:first-child {
+      margin: 20px auto;
+    }
+  }
+  td {
+    text-align: center;
+    vertical-align: top;
+    padding: 0;
+  }
+  .lines {
+    &:nth-child(3) {
+      td {
+        box-sizing: border-box;
+        height: 20px;
+      }
+    }
+    .topLine {
+      border-top: 2px solid rgba(217, 83, 79, 0.8);
+    }
+    .rightLine {
+      border-right: 1px solid rgba(217, 83, 79, 0.8);
+      float: none;
+      border-radius: 0;
+    }
+    .leftLine {
+      border-left: 1px solid rgba(217, 83, 79, 0.8);
+      float: none;
+      border-radius: 0;
+    }
+    .downLine {
+      background-color: $background_color_1;
+      margin: 0 auto;
+      height: 20px;
+      width: 2px;
+      float: none;
+    }
+  }
+  .node {
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 3px;
+    border: 2px dashed transparent;
+    text-align: center;
+    transition: transform 0.3s, opacity 0.3s;
+    >.spinner {
+      position: absolute;
+      top: calc(50% - 15px);
+      left: calc(50% - 15px);
+      vertical-align: middle;
+      font-size: 30px;
+      color: $color_1;
+    }
+    &:hover {
+      background-color: $background_color_2;
+      transition: .5s;
+      cursor: default;
+      z-index: 20;
+    }
+    .title {
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      height: 20px;
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background-color: $background_color_1;
+      color: $color_2;
+      border-radius: 4px 4px 0 0;
+      .symbol {
+        float: left;
+        margin-top: 4px;
+        margin-left: 2px;
+      }
+    }
+    .content {
+      box-sizing: border-box;
+      width: 100%;
+      height: 20px;
+      font-size: 11px;
+      line-height: 18px;
+      border: 1px solid rgba(217, 83, 79, 0.8);
+      border-radius: 0 0 4px 4px;
+      text-align: center;
+      background-color: $background_color_3;
+      color: $color_3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .edge {
+      font-size: 15px;
+      position: absolute;
+      color: $color_4;
+      cursor: default;
+      transition: .2s;
+    }
+    .verticalEdge {
+      width: calc(100% - 10px);
+      width: -webkit-calc(100% - 10px);
+      width: -moz-calc(100% - 10px);
+      left: 5px;
+    }
+    .topEdge {
+      top: -4px;
+    }
+    .bottomEdge {
+      bottom: -4px;
+    }
+    .horizontalEdge {
+      width: 15px;
+      height: calc(100% - 10px);
+      height: -webkit-calc(100% - 10px);
+      height: -moz-calc(100% - 10px);
+      top: 5px;
+      &::before {
+        position: absolute;
+        top: calc(50% - 7px);
+      }
+    }
+    .rightEdge {
+      right: -4px;
+      &::before {
+        right: 3px;
+      }
+    }
+    .leftEdge {
+      left: -4px;
+      &::before {
+        left: 3px;
+      }
+    }
+    .toggleBtn {
+      position: absolute;
+      left: 5px;
+      bottom: -2px;
+      color: $color_6;
+      &:hover {
+        color: $color_1;
+      }
+    }
+  }
+  .node.focused {
+    background-color: $background_color_2;
+  }
+  .ghost-node {
+    position: fixed;
+    left: -10000px;
+    top: -10000px;
+    rect {
+      fill: #ffffff;
+      stroke: #bf0000;
+    }
+  }
+  .node.allowedDrop {
+    border-color: $border_color_2;
+  }
+  .edge {
+    &:hover {
+      color: $color_5;
+      cursor: pointer;
+    }
+  }
+  .slide-down {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .slide-up {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  .slide-right {
+    opacity: 0;
+    transform: translateX(130px);
+  }
+  .slide-left {
+    opacity: 0;
+    transform: translateX(-130px);
+  }
+}
+.orgchart&~.hidden {
+  display: none;
+}
+.orgchart.b2t {
+  transform: rotate(180deg);
+  .node {
+    .title {
+      transform: rotate(-180deg);
+      transform-origin: center bottom;
+    }
+    .content {
+      transform: rotate(180deg);
+      transform-origin: center top;
+    }
+  }
+}
+.orgchart.l2r {
+  position: absolute;
+  transform: rotate(-90deg) rotateY(180deg);
+  transform-origin: left top;
+  .node {
+    width: 50px;
+    height: 130px;
+    .title {
+      transform: rotate(-90deg) translate(-40px, -40px) rotateY(180deg);
+      transform-origin: bottom center;
+      width: 120px;
+    }
+    .content {
+      transform: rotate(-90deg) translate(-40px, -40px) rotateY(180deg);
+      transform-origin: top center;
+      width: 120px;
+    }
+  }
+  .node.slide-down {
+    transform: translateY(130px);
+  }
+  .node.slide-up {
+    transform: translateY(-130px);
+  }
+  .node.slide-right {
+    transform: translateX(40px);
+  }
+  .node.slide-left {
+    transform: translateX(-40px);
+  }
+}
+.orgchart.r2l {
+  position: absolute;
+  transform: rotate(90deg);
+  transform-origin: left top;
+  .node {
+    width: 50px;
+    height: 130px;
+    .title {
+      transform: rotate(-90deg) translate(-40px, -40px);
+      transform-origin: bottom center;
+      width: 120px;
+    }
+    .content {
+      transform: rotate(-90deg) translate(-40px, -40px);
+      transform-origin: top center;
+      width: 120px;
+    }
+  }
+  .node.slide-down {
+    transform: translateY(130px);
+  }
+  .node.slide-up {
+    transform: translateY(-130px);
+  }
+  .node.slide-right {
+    transform: translateX(40px);
+  }
+  .node.slide-left {
+    transform: translateX(-40px);
+  }
+}
+.orgchart.noncollapsable {
+  .node {
+    .edge {
+      display: none;
+    }
+  }
+}
+.oc-export-btn {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  color: $color_2;
+  background-color: $background_color_4;
+  border: 1px solid transparent;
+  border-color: $border_color_3;
+  border-radius: 4px;
+  &:hover {
+    background-color: $background_color_5;
+    border-color: $border_color_4;
+  }
+  &:focus {
+    background-color: $background_color_5;
+    border-color: $border_color_4;
+  }
+  &:active {
+    background-color: $background_color_5;
+    border-color: $border_color_4;
+  }
+}
+.oc-export-btn[disabled] {
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.3;
+}
+.orgchart&~.mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  text-align: center;
+  background-color: $background_color_6;
+  .spinner {
+    position: absolute;
+    top: calc(50% - 54px);
+    left: calc(50% - 54px);
+    color: $color_7;
+    font-size: 108px;
+  }
+}

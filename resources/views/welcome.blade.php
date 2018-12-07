@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>360EPES</title>
+    <base href="/">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Jarallax -->
+    <script src="https://unpkg.com/jarallax@1.10/dist/jarallax.min.js"></script>
+    <!-- Include it if you want to use Video parallax -->
+    <script src="https://unpkg.com/jarallax@1.10/dist/jarallax-video.min.js"></script>
+    <!-- Include it if you want to parallax any element -->
+    <script src="https://unpkg.com/jarallax@1.10/dist/jarallax-element.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/13.0.4/css/intlTelInput.css">
+</head>
+<body>
+<app-root></app-root>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.2/web-animations.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+
+<!--Start of Tawk.to Script-->
+ <script type="text/javascript">
+   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+   (function () {
+     var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+     s1.async = true;
+     s1.src = 'https://embed.tawk.to/5b7d4764afc2c34e96e7cb9c/default';
+     s1.charset = 'UTF-8';
+     s1.setAttribute('crossorigin', '*');
+     s0.parentNode.insertBefore(s1, s0);
+   })();
+ </script>
+ <!--End of Tawk.to Script-->
+<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="scripts.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body></html>
